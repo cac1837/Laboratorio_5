@@ -28,7 +28,7 @@ void setup() {
       Serial.println("Inicializacion fallida...!"); //inicializacion fallida de la SD
     return;
 }
-  Serial.println("Inicializacion correcta ");
+  Serial.println("Inicializacion correcta "); //muestra el menu al ususario
   Serial.println(); //muestra el menu
   Serial.println("****** ARCHIVOS EN LA SD ******");
   Serial.println();
@@ -46,7 +46,7 @@ void loop() {
 if (Serial.available()>0){
   num = Serial.read();
    }
-  if (num == '1'){                   //seleccionaria el primer archivo que tenga
+  if (num == '1'){                   //primer archivo
     myFile = SD.open("Pacman.txt");    //debe de ir el nombre del archivo 
     if (myFile){
       Serial.println();
@@ -109,7 +109,7 @@ if(num == '3'){
       Serial.println("         Escoja nuevamente o seleccione 4 para terminar              ");
       Serial.println("*********************************************************************");   
   } 
-else if (num =='4'){ //termina el programa
+else if (num =='4'){ //funcion para termina el programa
   Serial.println("");
   Serial.println(" Fin del Programa ");
   fin=4;
@@ -119,7 +119,7 @@ else{}
 }
 /*La funcion del vector de interrupciones y las subrutinas
   para el directorio de la SD */
-void printDirectory(File dir, int numTabs){
+void printDirectory(File dir, int numTabs){//funcion para mostrar el directorio
   while(true){ //entra al directorio 
     File entry = dir.openNextFile();
     if(!entry){                       //no más archivos
